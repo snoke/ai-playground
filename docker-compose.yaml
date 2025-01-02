@@ -1,4 +1,18 @@
 services:
+  python:
+    build:
+      context: ./python
+      dockerfile: Dockerfile
+    container_name: python
+    volumes:
+      - ./python:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+    networks:
+      - internal
+
   frontend:
     build:
       dockerfile: Dockerfile
@@ -11,21 +25,6 @@ services:
       - ./frontend:/var/www/html/app  # Mounten nur des frontend-Ordners in den Container
     networks:
       - internal  # Netzwerk, das du eventuell verwendest (falls du mehrere Services hast)
-
-  backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    container_name: backend
-    volumes:
-      - ./backend:/var/www/html
-    ports:
-      - "2222:22"
-      - "8001:9001"
-    depends_on:
-      - database
-    networks:
-      - internal
 
   database:
     image: mariadb:10.5

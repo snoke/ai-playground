@@ -1,0 +1,15 @@
+Django>=4.2
+mysqlclient
+openai-whisper==20240930
+torch
+torchaudio
+torchvision
+torch --index-url https://download.pytorch.org/whl/cpu
+fastapi
+transformers
+sentencepiece
+sacremoses
+ctranslate2
+pycountry
+accelerate>=0.26.0
+huggingface_hub

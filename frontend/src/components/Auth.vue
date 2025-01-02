@@ -13,11 +13,7 @@ export default {
   props: {
     oauthClientId: {
       type: String,
-      required: true,
-    },
-    oauthEndpoint: {
-      type: String,
-      required: true, // Der Endpoint, an den die Anfrage gesendet wird
+      default: '325144873900-s2eib0vh981tol0ukm5u1q7pscl8qmsh.apps.googleusercontent.com',
     },
     theme: {
       type: String,
